@@ -5,13 +5,17 @@ using UnityEngine;
 [System.Serializable]
 public class LevelData
 {
-    private int level;
-    public LevelData(int level)
+    public string nameLevel;
+    public bool isOpen;
+
+    public LevelData(string nameLevel, bool isOpen)
     {
-        this.level = level;
+        this.nameLevel = nameLevel;
+        this.isOpen = isOpen;
     }
-    public int GetLevel()
+
+    public override string ToString()
     {
-        return level;
+        return "name " + nameLevel + ": " + isOpen;
     }
 }

@@ -47,7 +47,7 @@ public class Opossum : Enemy
         EnemyDeath(collision);
         GetComponent<Animator>().SetTrigger("IsDie");
         isAlive = false;
-        GameSession listEnemy = FindObjectOfType<GameSession>();
+        GameSession listEnemy = GameObject.FindGameObjectWithTag("Session").GetComponent<GameSession>();
         listEnemy.ListEnemy.Add(gameObject.name.ToString());
     }
 }

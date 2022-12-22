@@ -16,7 +16,7 @@ public class CherryPickup : MonoBehaviour
 
         if (other.CompareTag("Player"))
         {
-            GameSession.Instance.AddLives(pointCherry);
+            GameObject.FindGameObjectWithTag("Session").GetComponent<GameSession>().AddLives(pointCherry);
             Destroy(gameObject, 0.5f);
             GetComponent<Animator>().SetTrigger("IsDestroy");
             float volume = PlayerPrefsController.GetSFXVolume();

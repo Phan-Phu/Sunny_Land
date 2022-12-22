@@ -14,7 +14,7 @@ public class GemPickUp : MonoBehaviour
 
         if (other.CompareTag("Player"))
         {
-            GameSession.Instance.AddToScore(pointGem);
+            GameObject.FindGameObjectWithTag("Session").GetComponent<GameSession>().AddToScore(pointGem);
             Destroy(gameObject, 0.5f);
             GetComponent<Animator>().SetTrigger("IsDestroy");
             isAlive = false;

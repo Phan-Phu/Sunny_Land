@@ -8,13 +8,15 @@ using UnityEngine.UI;
 public class TextScore : MonoBehaviour
 {
     Text textScore;
+    GameSession gameSession;
     private void Awake()
     {
+        gameSession = GameObject.FindGameObjectWithTag("Session").GetComponent<GameSession>();
         textScore = GetComponent<Text>();
     }
     private void OnEnable()
     {
-        GameSession.Instance.updateScore.AddListener(UpdateScore);
+        gameSession.updateScore.AddListener(UpdateScore);
     }
     private void Start()
     {
@@ -26,6 +28,6 @@ public class TextScore : MonoBehaviour
     }
     private void OnDisable()
     {
-        GameSession.Instance.updateScore.RemoveListener(UpdateScore);
+        gameSession.updateScore.RemoveListener(UpdateScore);
     }
 }

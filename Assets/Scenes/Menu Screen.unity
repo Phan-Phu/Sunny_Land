@@ -1299,7 +1299,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5174264716960532363, guid: ae85827fae184f741a135a91fe054d33, type: 3}
         m_TargetAssemblyTypeName: LevelLoader, Assembly-CSharp
-        m_MethodName: NewGame
+        m_MethodName: PlayGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

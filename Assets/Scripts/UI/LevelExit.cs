@@ -1,42 +1,38 @@
+using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 public class LevelExit : MonoBehaviour
 {
-    [SerializeField] float timeToDelay = 3f;
-    [SerializeField] [Range(0f, 1f)] float levelExitSlowFactor = 0.2f;
+    private NotifySceneManager notifySceneManager;
+    private string nameScene;
+    int currentScene = 0;
+
+    private void Start()
+    {
+        nameScene = SceneManager.GetActiveScene().name;
+        notifySceneManager = GameObject.FindGameObjectWithTag("Notification").GetComponent<NotifySceneManager>();
+        notifySceneManager.ShowTitle(nameScene);
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        string nameCurrentScene = SceneManager.GetActiveScene().name;
-        TextTitle textComplete = GetComponent<TextTitle>();
-        textComplete.SetImage();
-        GetComponent<TextTitle>().ShowTitle(nameCurrentScene + " Complete");
-        StartCoroutine(LoadNextLevel());
+        ShowLevelComplete();
+        int index = SceneManager.GetActiveScene().buildIndex;
+        if (currentScene != index)
+        {
+            currentScene = index;
+            GameSession gameSession = GameObject.FindGameObjectWithTag("Session").GetComponent<GameSession>();
+            gameSession.LoadNextLevel();
+        }
     }
 
-    IEnumerator LoadNextLevel()
+    private void ShowLevelComplete()
     {
-        Time.timeScale = levelExitSlowFactor;
-        yield return new WaitForSeconds(timeToDelay);
-        Time.timeScale = 1f;
-        GameSession gameSession = FindObjectOfType<GameSession>();
-        gameSession.IsSavePos = false;
-
-        var currentScene = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(currentScene + 1);
-            
-        if (gameSession.OriginScene == currentScene)
-        {
-            gameSession.ListGemItem.Clear();
-            gameSession.ListCherryItem.Clear();
-            gameSession.ListEnemy.Clear();
-            gameSession.OriginScene = currentScene + 1;
-        }
-        Destroy(gameObject);
-
-        //SaveSystem.SaveDataLevel();
+        notifySceneManager.ShowTitle(nameScene + " completed");
     }
 }

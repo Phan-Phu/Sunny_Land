@@ -8,26 +8,6 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected Vector2 killKickPlayer = new Vector2(0f, 10f);
     [SerializeField] protected AudioClip enemyDeathSFX;
 
-    private void Start()
-    {
-        List<string> listEnemy = new List<string>();
-
-        GameSession listGame = FindObjectOfType<GameSession>();
-        foreach (var item in listGame.ListEnemy)
-        {
-            listEnemy.Add(item);
-        }
-
-        Enemy[] listnemy = GetComponentsInChildren<Enemy>();
-        for (int i = 0; i < listnemy.Length; i++)
-        {
-            if (listEnemy.Contains(listnemy[i].name.ToString()))
-            {
-                Destroy(listnemy[i].gameObject);
-            }
-        }
-    }
-
     protected void EnemyDeath(Collision2D collision)
     {
         if(IsPlayer(collision.collider))

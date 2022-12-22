@@ -11,12 +11,12 @@ public class SaveLoadItem : MonoBehaviour
         List<string> listGem = new List<string>();
         List<string> listCherry = new List<string>();
 
-        GameSession listGame = FindObjectOfType<GameSession>();
-        foreach (var item in listGame.ListGemItem)
+        GameSession gameSession = GameObject.FindGameObjectWithTag("Session").GetComponent<GameSession>();
+        foreach (var item in gameSession.ListGemItem)
         {
             listGem.Add(item);
         }
-        foreach (var item in listGame.ListCherryItem)
+        foreach (var item in gameSession.ListCherryItem)
         {
             listCherry.Add(item);
         }

@@ -1,19 +1,29 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class LevelLoader : MonoBehaviour
 {
-    public void NewGame()
+    [SerializeField] private List<LoadSceneLevel> loadSceneLevelList = new List<LoadSceneLevel>();
+
+    private void Start()
     {
-        SaveSystem.DeleteDataLevel();
-        SceneManager.LoadScene("Level 1");
+        foreach (LoadSceneLevel item in loadSceneLevelList)
+        {
+            item.onLoadLevel += (object sender, string nameScene) =>
+            {
+                LoadLevel(nameScene);
+            };
+        }
     }
-    public void ContinueGame()
+
+    public void PlayGame()
     {
-        SceneManager.LoadScene("Level 1");
+        SceneManager.LoadScene("Menu Level");
     }
     public void LoadNextScene()
     {
@@ -22,7 +32,7 @@ public class LevelLoader : MonoBehaviour
     }
     public void LoadMainMenu()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("Menu Screen");
     }
     public void LoadSettings()
     {
@@ -32,19 +42,10 @@ public class LevelLoader : MonoBehaviour
     {
         Application.Quit();
     }
-    private void Update()
+
+    public void LoadLevel(string nameScene)
     {
-        int currentScene = SceneManager.GetActiveScene().buildIndex;
-        if (currentScene != 1) { return; }
-        var btnContinue = GameObject.Find("Continue Button");
-        if (!btnContinue) { return; }
-        if (SaveSystem.LoadDataLevel() == null)
-        {
-            btnContinue.SetActive(false);
-        }
-        else
-        {
-            btnContinue.SetActive(true);
-        }
+        SceneManager.LoadScene(nameScene);
+        SceneManager.LoadSceneAsync("Persistent Scene", LoadSceneMode.Additive);
     }
 }

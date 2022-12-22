@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,14 +7,12 @@ using UnityEngine.Events;
 
 public class GameSession : MonoBehaviour
 {
-    private static GameSession instance;
-
     [SerializeField] GameObject levelPause;
 
-    SavePoint savePoint;
-    public static GameSession Instance => instance;
     public UnityEvent<int> updateScore;
     public UnityEvent<int> updateLives;
+
+    private SavePoint savePoint;
 
     public List<string> ListGemItem = new List<string>();
     public List<string> ListCherryItem = new List<string>();
@@ -21,27 +20,13 @@ public class GameSession : MonoBehaviour
 
     private int score;
     private int playerLives = 3;
+    private bool isActiveLevelPause = false;
     public bool IsSavePos { get; set; }
-    public bool isAlive { get; set; }
-    public int OriginScene;
-
-    private void Awake()
-    {
-        instance = this;
-        OriginScene = SceneManager.GetActiveScene().buildIndex;
-        int numGameSessions = FindObjectsOfType<GameSession>().Length;
-        if (numGameSessions > 1)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            DontDestroyOnLoad(gameObject);
-        }
-    }
+    public int StartScene { get; set; }
 
     void Start()
     {
+        StartScene = SceneManager.GetActiveScene().buildIndex;
         levelPause.SetActive(false);
     }
     public void AddToScore(int score)
@@ -54,6 +39,56 @@ public class GameSession : MonoBehaviour
         playerLives += live;
         updateLives?.Invoke(playerLives);
     }
+
+    public void LoadNextLevel()
+    {
+        int currentScene = SceneManager.GetActiveScene().buildIndex;
+        StartCoroutine(SaveLoadScene(currentScene));
+
+        if (StartScene == currentScene)
+        {
+            ClearDataItem();
+            ClearDataEnemy();
+            StartScene = currentScene + 1;
+        }
+    }
+
+    private IEnumerator SaveLoadScene(int currentScene)
+    {
+        SaveDataNextLevel(currentScene);
+        yield return new WaitForSeconds(2f);
+        StartCoroutine(UnLoadScene(currentScene));
+        StartCoroutine(LoadSceneAsyncAndActive(currentScene));
+    }
+
+    private void SaveDataNextLevel(int currentScene)
+    {
+        string sceneSave = SceneUtility.GetScenePathByBuildIndex(currentScene + 1);
+        string nameScene = sceneSave.Substring(sceneSave.LastIndexOf('/') + 1);
+        nameScene = nameScene.Substring(0, nameScene.Length - 6);
+        List<LevelData> levelDatalist = SaveLoadSystem.Instance.GetSaveSystem().LoadDataLevel();
+        foreach (LevelData item in levelDatalist)
+        {
+            if (item.nameLevel == nameScene)
+            {
+                item.isOpen = true;
+            }
+        }
+        SaveSystem.Instance.SaveDataLevel(levelDatalist);
+    }
+
+    private IEnumerator UnLoadScene(int currentScene)
+    {
+        yield return SceneManager.UnloadSceneAsync(currentScene);
+    }
+
+    private IEnumerator LoadSceneAsyncAndActive(int currentScene)
+    {
+        yield return SceneManager.LoadSceneAsync(currentScene + 1, LoadSceneMode.Additive);
+        Scene scene = SceneManager.GetSceneByBuildIndex(currentScene + 1);
+        SceneManager.SetActiveScene(scene);
+    }
+
     public void ProcessPlayerDeath()
     {
         if (playerLives > 1)
@@ -72,68 +107,58 @@ public class GameSession : MonoBehaviour
 
         int currentIndex = SceneManager.GetActiveScene().buildIndex;
         StartCoroutine(DelayLoadScene(currentIndex));
-
-        savePoint = FindObjectOfType<SavePoint>();
-        if (!savePoint) { return; }
-        IsSavePos = savePoint.boolTouch;
     }
+
     private IEnumerator DelayLoadScene(int index)
     {
         yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene(index);
-        if(index == 0)
-            Destroy(gameObject);
+        if(index == 1)
+        {
+            SceneManager.LoadScene(index);
+        }
+        else
+        {
+            yield return SceneManager.UnloadSceneAsync(index);
+            yield return SceneManager.LoadSceneAsync(index, LoadSceneMode.Additive);
+            Scene scene = SceneManager.GetSceneByBuildIndex(index);
+            SceneManager.SetActiveScene(scene);
+        }
     }
-
 
     private void ResetGameSession()
     {
-        StartCoroutine(DelayLoadScene(0));
+        StartCoroutine(DelayLoadScene(1));
     }
-
 
     private void Update()
     {
         PauseLevel();
-        //LoadContinueLevel();
-        CheckCurrentScene();
-    }
-    private void LoadContinueLevel()
-    {
-        int currentIndex = SceneManager.GetActiveScene().buildIndex;
-        if (currentIndex == 2)
-        {
-            LevelData data = SaveSystem.LoadDataLevel();
-            if (data == null) { return; }
-            int conLevel = data.GetLevel();
-            SceneManager.LoadScene("Level " + conLevel);
-        }
     }
     public void PauseLevel()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && levelPause.activeSelf == false)
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            levelPause.SetActive(true);
-            Time.timeScale = 0;
-        }
-        else if (Input.GetKeyDown(KeyCode.Escape) && levelPause.activeSelf == true)
-        {
-            levelPause.SetActive(false);
-            Time.timeScale = 1;
+            isActiveLevelPause = !isActiveLevelPause;
+            levelPause.SetActive(isActiveLevelPause);
+            Time.timeScale = isActiveLevelPause ? 0 : 1;
         }
     }
+
     public void LoadMainMenu()
     {
         SceneManager.LoadScene(0);
         Time.timeScale = 1;
         Destroy(gameObject);
     }
-    private void CheckCurrentScene()
+
+    public void ClearDataItem()
     {
-        int currentIndex = SceneManager.GetActiveScene().buildIndex;
-        if (currentIndex == 4)
-        {
-            Destroy(gameObject);
-        }
+        ListCherryItem.Clear();
+        ListGemItem.Clear();
+    }
+
+    public void ClearDataEnemy()
+    {
+        ListEnemy.Clear();
     }
 }

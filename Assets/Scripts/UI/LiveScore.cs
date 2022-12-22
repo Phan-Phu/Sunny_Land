@@ -8,17 +8,19 @@ using UnityEngine.UI;
 public class LiveScore : MonoBehaviour
 {
     Text liveScore;
+    GameSession gameSession;
     private void Awake()
     {
+        gameSession = GameObject.FindGameObjectWithTag("Session").GetComponent<GameSession>();
         liveScore = GetComponent<Text>();
+    }
+    private void OnEnable()
+    {
+        gameSession.updateLives.AddListener(UpdateLive);
     }
     private void Start()
     {
         UpdateLive(3);
-    }
-    private void OnEnable()
-    {
-        GameSession.Instance.updateLives.AddListener(UpdateLive);
     }
     private void UpdateLive(int live)
     {
@@ -26,6 +28,6 @@ public class LiveScore : MonoBehaviour
     }
     private void OnDisable()
     {
-        GameSession.Instance.updateLives.RemoveListener(UpdateLive);
+        gameSession.updateLives.RemoveListener(UpdateLive);
     }
 }

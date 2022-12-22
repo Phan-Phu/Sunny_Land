@@ -8,6 +8,8 @@ TagManager:
   - Title
   - Ground
   - Tutorial
+  - Session
+  - Notification
   layers:
   - Default
   - TransparentFX
@@ -45,14 +47,8 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Foreground
-    uniqueID: 1448789141
-    locked: 0
-  - name: Player
-    uniqueID: 1145448711
-    locked: 0
-  - name: Interacables
-    uniqueID: 2728799503
+  - name: Background
+    uniqueID: 413224181
     locked: 0
   - name: Climb
     uniqueID: 3484137789
@@ -60,9 +56,15 @@ TagManager:
   - name: Enemy
     uniqueID: 42054741
     locked: 0
-  - name: Background
-    uniqueID: 413224181
-    locked: 0
   - name: Hazards
     uniqueID: 4142245537
+    locked: 0
+  - name: Player
+    uniqueID: 1145448711
+    locked: 0
+  - name: Interacables
+    uniqueID: 2728799503
+    locked: 0
+  - name: Foreground
+    uniqueID: 1448789141
     locked: 0
