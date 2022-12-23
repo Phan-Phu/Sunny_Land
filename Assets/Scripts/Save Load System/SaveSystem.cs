@@ -21,7 +21,7 @@ public class SaveSystem : MonoBehaviour, ISaveSystem
 
     public void SaveDataLevel(List<LevelData> levelDataList)
     {
-        var saveLevel = new ListLevelSave { listLevelSave = levelDataList };
+        ListLevelSave saveLevel = new ListLevelSave { listLevelSave = levelDataList };
         string jsonData = JsonUtility.ToJson(saveLevel);
 
         string path = Application.streamingAssetsPath + "/Level.json";
@@ -34,7 +34,7 @@ public class SaveSystem : MonoBehaviour, ISaveSystem
         if (File.Exists(path))
         {
             string jsonData = File.ReadAllText(path);
-            if(jsonData == "") { return null; }
+            if (jsonData == "") { return null; }
             List<LevelData> levelDataList = new List<LevelData>();
             ListLevelSave listLevelSave = JsonUtility.FromJson<ListLevelSave>(jsonData);
             foreach (LevelData level in listLevelSave.listLevelSave)

@@ -53,4 +53,10 @@ public class OptionController : MonoBehaviour
         PlayerPrefsController.SetSFXVolume(volumeSFXSlider.value);
         FindObjectOfType<LevelLoader>().LoadMainMenu();
     }
+
+    public void SaveAndExitPauseGame()
+    {
+        PlayerPrefsController.SetMasterVolume(volumeSlider.value);
+        PlayerPrefsController.SetSFXVolume(volumeSFXSlider.value);
+    }
 }

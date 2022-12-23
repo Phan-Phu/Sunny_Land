@@ -66,15 +66,16 @@ public class GameSession : MonoBehaviour
         string sceneSave = SceneUtility.GetScenePathByBuildIndex(currentScene + 1);
         string nameScene = sceneSave.Substring(sceneSave.LastIndexOf('/') + 1);
         nameScene = nameScene.Substring(0, nameScene.Length - 6);
-        List<LevelData> levelDatalist = SaveLoadSystem.Instance.GetSaveSystem().LoadDataLevel();
-        foreach (LevelData item in levelDatalist)
+        List<LevelData> levelDataList = SaveLoadSystem.Instance.GetSaveSystem().LoadDataLevel();
+        foreach (LevelData item in levelDataList)
         {
             if (item.nameLevel == nameScene)
             {
                 item.isOpen = true;
             }
         }
-        SaveSystem.Instance.SaveDataLevel(levelDatalist);
+        ISaveSystem saveSystem = SaveLoadSystem.Instance.GetSaveSystem();
+        saveSystem.SaveDataLevel(levelDataList);
     }
 
     private IEnumerator UnLoadScene(int currentScene)
@@ -141,6 +142,7 @@ public class GameSession : MonoBehaviour
             isActiveLevelPause = !isActiveLevelPause;
             levelPause.SetActive(isActiveLevelPause);
             Time.timeScale = isActiveLevelPause ? 0 : 1;
+            FindObjectOfType<OptionController>().SaveAndExitPauseGame();
         }
     }
 

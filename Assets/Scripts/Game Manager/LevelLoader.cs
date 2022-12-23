@@ -43,7 +43,7 @@ public class LevelLoader : MonoBehaviour
         Application.Quit();
     }
 
-    public void LoadLevel(string nameScene)
+    private void LoadLevel(string nameScene)
     {
         SceneManager.LoadScene(nameScene);
         SceneManager.LoadSceneAsync("Persistent Scene", LoadSceneMode.Additive);

@@ -29,6 +29,7 @@ public class ShowLevel : MonoBehaviour
     private void Start()
     {
         List<LevelData> levelDataList = SaveLoadSystem.Instance.GetSaveSystem().LoadDataLevel();
+
         if (levelDataList == null)
         {
             InitializeListLevel();
@@ -86,7 +87,8 @@ public class ShowLevel : MonoBehaviour
             levelDataList.Add(levelData);
         }
 
-        SaveSystem.Instance.SaveDataLevel(levelDataList);
+        ISaveSystem saveSystem = SaveLoadSystem.Instance.GetSaveSystem();
+        saveSystem.SaveDataLevel(levelDataList);
     }
 
     private void LockLevel(LoadSceneLevel loadSceneLevel)
@@ -110,9 +112,10 @@ public class ShowLevel : MonoBehaviour
             {
                 levelData.isOpen = true;
             }
-            Debug.Log(levelData);
         }
-        SaveSystem.Instance.SaveDataLevel(levelDataList);
+
+        ISaveSystem saveSystem = SaveLoadSystem.Instance.GetSaveSystem();
+        saveSystem.SaveDataLevel(levelDataList);
     }
 
     public bool GetIsOpenLevel(string nameLevel)

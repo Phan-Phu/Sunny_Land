@@ -7,7 +7,6 @@ public class LoadSceneLevel : MonoBehaviour
     public event EventHandler<string> onLoadLevel;
     public event EventHandler<bool> onLockLevel;
     private Button button;
-
     private void Awake()
     {
         button = GetComponentInChildren<Button>();
@@ -16,9 +15,8 @@ public class LoadSceneLevel : MonoBehaviour
     private void Start()
     {
         bool isOpen = ShowLevel.Instance.GetIsOpenLevel(gameObject.name);
-        onLockLevel?.Invoke(this, isOpen);
-
         button.onClick.AddListener(LoadLevelScene);
+        onLockLevel?.Invoke(this, isOpen);
     }
 
     private void LoadLevelScene()
