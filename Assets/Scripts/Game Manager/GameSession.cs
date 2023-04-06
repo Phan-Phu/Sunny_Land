@@ -12,8 +12,6 @@ public class GameSession : MonoBehaviour
     public UnityEvent<int> updateScore;
     public UnityEvent<int> updateLives;
 
-    private SavePoint savePoint;
-
     public List<string> ListGemItem = new List<string>();
     public List<string> ListCherryItem = new List<string>();
     public List<string> ListEnemy = new List<string>();

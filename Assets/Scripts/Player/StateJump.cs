@@ -28,6 +28,5 @@ public class StateJump : State
 
         myRigidbody2D.velocity = new Vector2(myRigidbody2D.velocity.x, jump);
         myAnimator.SetBool("Is_Jump", isJumping > Mathf.Epsilon);
-
     }
 }

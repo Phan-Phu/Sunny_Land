@@ -45,6 +45,7 @@ public class LevelLoader : MonoBehaviour
 
     private void LoadLevel(string nameScene)
     {
+        if(nameScene == "") { return; }
         SceneManager.LoadScene(nameScene);
         SceneManager.LoadSceneAsync("Persistent Scene", LoadSceneMode.Additive);
     }

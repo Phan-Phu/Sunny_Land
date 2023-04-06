@@ -29,15 +29,16 @@ public abstract class State : MonoBehaviour
 
     }
 
+    public virtual void Climb(float speed)
+    {
+
+    }
+
     public virtual void Jump(float jumpForce)
     {
 
     }
 
-    public virtual void Climb(float speed)
-    {
-
-    }
     public virtual void Die(CharacterController characterController, Vector2 deathKick, AudioClip audioDeath)
     {
 
@@ -68,5 +69,4 @@ public abstract class State : MonoBehaviour
     {
         return startGravity;
     }
-
 }
