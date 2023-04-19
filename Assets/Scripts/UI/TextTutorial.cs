@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 public class TextTutorial : MonoBehaviour
 {
     [SerializeField] private string text;
-    [SerializeField] private float TimeToResetText = 3f;
 
     private BoxCollider2D myBody;
     private NotifySceneManager notifySceneManager;
@@ -25,7 +24,7 @@ public class TextTutorial : MonoBehaviour
         if (nameScene == "Level 1")
         {
             string text = "Press A (Left Arrow) or D (Right Arrow) to move";
-            notifySceneManager.ShowTutorial(text);
+            ShowText(text);
         }
     }
 
@@ -33,7 +32,12 @@ public class TextTutorial : MonoBehaviour
     {
         if (myBody.IsTouchingLayers(LayerMask.GetMask("Player")))
         {
-            notifySceneManager.ShowTutorial(text);
+            ShowText(text);
         }
+    }
+
+    private void ShowText(string text)
+    {
+        notifySceneManager.ShowTutorial(text);
     }
 }

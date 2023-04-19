@@ -9,8 +9,8 @@ public class ShowLevel : MonoBehaviour
 {
     public static ShowLevel Instance;
 
-    [SerializeField] private List<LoadSceneLevel> loadSceneLevelList = new List<LoadSceneLevel>();
     [SerializeField] private GameObject lockLevelPrefab;
+    private LoadSceneLevel []loadSceneLevelArray;
 
     private List<string> nameSceneLevelList = new List<string>();
     private List<LevelData> levelDataList = new List<LevelData>();
@@ -28,6 +28,8 @@ public class ShowLevel : MonoBehaviour
 
     private void Start()
     {
+        loadSceneLevelArray = GetComponentsInChildren<LoadSceneLevel>();
+
         List<LevelData> levelDataList = SaveLoadSystem.Instance.GetSaveSystem().LoadDataLevel();
 
         if (levelDataList == null)
@@ -42,7 +44,7 @@ public class ShowLevel : MonoBehaviour
             this.levelDataList = levelDataList;
         }
 
-        foreach (LoadSceneLevel item in loadSceneLevelList)
+        foreach (LoadSceneLevel item in loadSceneLevelArray)
         {
             item.onLockLevel += (object sender, bool isOpen) =>
             {

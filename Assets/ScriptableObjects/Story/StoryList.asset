@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29135c0d98d2b904b80fd73ed4d89899, type: 3}
+  m_Name: StoryList
+  m_EditorClassIdentifier: 
+  storyList:
+  - titleText: Introduction
+    textStory: The old forest is home to many animals. Witnessing with their own
+      eyes the evil people destroy their house, but the creatures living in the forest
+      have come together to protect it, so the edge of the forest will be the place
+      where these creatures try to protect. guard, it's like a wall to protect the
+      forest with the bad guys out there.
+  - titleText: Part 1
+    textStory: Unfortunately, Sunny roamed around without paying attention to the
+      village's rules (not to leave the village at night), so until Sunny realized
+      and got lost in the deep forest without finding the way. go home. Fortunately,
+      in the dark forest outside the bad animals, there are still kind animals that
+      help Sunny the fox find his way home.
+  - titleText: Part 2
+    textStory: P2
+  - titleText: Part 3
+    textStory: P3
+  - titleText: Ending
+    textStory: 'After Sunny escaped danger with the help of kind people in the deep
+      forest and in the dungeon. Then, Sunny found his way home. Sunny told himself:
+      I will pay attention to the rules of the village.'

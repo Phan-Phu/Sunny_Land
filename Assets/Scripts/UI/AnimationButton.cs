@@ -18,11 +18,13 @@ public class AnimationButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        rectTransform.offsetMin = new Vector2(rectTransform.offsetMin.x, 5f);
+        float holdDownButtonY = 5f;
+        rectTransform.offsetMin = new Vector2(rectTransform.offsetMin.x, holdDownButtonY);
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        rectTransform.offsetMin = new Vector2(rectTransform.offsetMin.x, 30);
+        float releaseButtonY = 30f;
+        rectTransform.offsetMin = new Vector2(rectTransform.offsetMin.x, releaseButtonY);
     }
 }

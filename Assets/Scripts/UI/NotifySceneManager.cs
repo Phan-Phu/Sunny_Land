@@ -16,6 +16,7 @@ public class NotifySceneManager : MonoBehaviour
     [SerializeField] Sprite longSprite;
 
     [SerializeField] private float timeToReset = 2f;
+    [SerializeField] private float timeToResetStory = 2f;
 
     private void Awake()
     {
@@ -24,7 +25,17 @@ public class NotifySceneManager : MonoBehaviour
 
     public void ShowTutorial(string text)
     {
-        StartCoroutine(ShowTextTutorial(text));
+        StartCoroutine(ShowTextTutorial(text, timeToReset));
+    }
+
+    public void ShowStory(string text)
+    {
+        ShowTextStory(text);
+    }
+
+    public void HideStory()
+    {
+        HideTextStory();
     }
 
     public void ShowTitle(string title)
@@ -32,7 +43,20 @@ public class NotifySceneManager : MonoBehaviour
         StartCoroutine(ShowTextTitle(title));
     }
 
-    private IEnumerator ShowTextTutorial(string text)
+    private void ShowTextStory(string text)
+    {
+        frameTutorial.enabled = true;
+        textTutorial.text = text.ToString();
+    }
+
+    private void HideTextStory()
+    {
+        textTutorial.text = "";
+        frameTutorial.enabled = false;
+    }
+
+
+    private IEnumerator ShowTextTutorial(string text, float timeToReset)
     {
         frameTutorial.enabled = true;
         textTutorial.text = text.ToString();

@@ -8,6 +8,7 @@ using UnityEngine.Events;
 
 public class LevelLoader : MonoBehaviour
 {
+    [Tooltip("Use in Menu Level")]
     [SerializeField] private List<LoadSceneLevel> loadSceneLevelList = new List<LoadSceneLevel>();
 
     private void Start()
@@ -46,6 +47,24 @@ public class LevelLoader : MonoBehaviour
     private void LoadLevel(string nameScene)
     {
         if(nameScene == "") { return; }
+        if(nameScene == "Level 1")
+        {
+            LoadStoryScene();
+        }
+        else
+        {
+            LoadNextLevel(nameScene);
+        }
+    }
+
+    private void LoadStoryScene()
+    {
+        string nameScene = "Story Screen";
+        SceneManager.LoadScene(nameScene);
+    }
+
+    public void LoadNextLevel(string nameScene)
+    {
         SceneManager.LoadScene(nameScene);
         SceneManager.LoadSceneAsync("Persistent Scene", LoadSceneMode.Additive);
     }

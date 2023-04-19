@@ -9,15 +9,15 @@ public class LoadStartLevel : MonoBehaviour
 
     private void Start()
     {
-        int currentScene = SceneManager.GetActiveScene().buildIndex;
-        if(currentScene == 0)
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        if(currentSceneIndex == 0)
         {
-            StartCoroutine(WaitForTime());
+            StartCoroutine(WaitForTime(currentSceneIndex));
         }
     }
-    IEnumerator WaitForTime()
+    IEnumerator WaitForTime(int currentSceneIndex)
     {
         yield return new WaitForSeconds(timeToWait);
-        FindObjectOfType<LevelLoader>().LoadNextScene();
+        SceneManager.LoadScene(currentSceneIndex + 1);
     }
 }

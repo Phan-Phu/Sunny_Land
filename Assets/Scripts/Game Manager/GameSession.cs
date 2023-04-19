@@ -55,6 +55,12 @@ public class GameSession : MonoBehaviour
     {
         SaveDataNextLevel(currentScene);
         yield return new WaitForSeconds(2f);
+        LoadLevel(currentScene);
+    }
+
+    public void LoadLevel(int currentScene)
+    {
+        Time.timeScale = 1;
         StartCoroutine(UnLoadScene(currentScene));
         StartCoroutine(LoadSceneAsyncAndActive(currentScene));
     }
