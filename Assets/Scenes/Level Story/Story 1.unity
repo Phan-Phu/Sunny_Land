@@ -429,6 +429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 204f7d09185cc3849b54efeaa7cdf8b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  storySO: {fileID: 11400000, guid: 10bda1a7e5fea86419632e668a4a744c, type: 2}
 --- !u!1001 &183142766
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5801,8 +5802,38 @@ Tilemap:
   - first: {x: 70, y: 5, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 4
-      m_TileSpriteIndex: 4
+      m_TileIndex: 16
+      m_TileSpriteIndex: 12
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: 71, y: 5, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 17
+      m_TileSpriteIndex: 14
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: 72, y: 5, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 16
+      m_TileSpriteIndex: 12
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: 73, y: 5, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 16
+      m_TileSpriteIndex: 12
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -5818,8 +5849,8 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: b8635f555db78ad43a783f1d25421fd9, type: 2}
   - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: ecbcfe5363ab9c146893688d7e89026b, type: 2}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: bc7b3c9b4419900499f83c54507b2482, type: 2}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 4
     m_Data: {fileID: 11400000, guid: 251d098b4678eb54fa26a4f5e80413ee, type: 2}
   - m_RefCount: 3
@@ -5842,9 +5873,9 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: d311762af3e6cf94fb025201a9c164dd, type: 2}
   - m_RefCount: 85
     m_Data: {fileID: 11400000, guid: 10952861068460e40abc6c4d923562df, type: 2}
-  - m_RefCount: 9
+  - m_RefCount: 12
     m_Data: {fileID: 11400000, guid: 8b803b9527611884b9b38809d9a9200d, type: 2}
-  - m_RefCount: 5
+  - m_RefCount: 6
     m_Data: {fileID: 11400000, guid: bd0490f6ab9230b468763a456b8e3d82, type: 2}
   - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: af45cdd501de8e941a96eba89cd2af45, type: 2}
@@ -5887,8 +5918,8 @@ Tilemap:
     m_Data: {fileID: 21300102, guid: 261212b977f594d5dbc48631a5c1295c, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: 21300128, guid: 2eeb0d4e8888f48459040781a511455e, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 21300040, guid: 2eeb0d4e8888f48459040781a511455e, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 4
     m_Data: {fileID: 21300062, guid: 2eeb0d4e8888f48459040781a511455e, type: 3}
   - m_RefCount: 3
@@ -5903,11 +5934,11 @@ Tilemap:
     m_Data: {fileID: 21300126, guid: 2eeb0d4e8888f48459040781a511455e, type: 3}
   - m_RefCount: 85
     m_Data: {fileID: 21300076, guid: 2eeb0d4e8888f48459040781a511455e, type: 3}
-  - m_RefCount: 9
+  - m_RefCount: 12
     m_Data: {fileID: 21300038, guid: 2eeb0d4e8888f48459040781a511455e, type: 3}
   - m_RefCount: 28
     m_Data: {fileID: 21300220, guid: 261212b977f594d5dbc48631a5c1295c, type: 3}
-  - m_RefCount: 5
+  - m_RefCount: 6
     m_Data: {fileID: 21300036, guid: 2eeb0d4e8888f48459040781a511455e, type: 3}
   - m_RefCount: 4
     m_Data: {fileID: 21300058, guid: 2eeb0d4e8888f48459040781a511455e, type: 3}
@@ -5944,7 +5975,7 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: 21300122, guid: 2eeb0d4e8888f48459040781a511455e, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 434
+  - m_RefCount: 437
     m_Data:
       e00: 1
       e01: 0
@@ -5963,7 +5994,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 434
+  - m_RefCount: 437
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -6074,12 +6105,14 @@ CompositeCollider2D:
       - X: 710000100
         Y: -50000041
       - X: 710000100
-        Y: 59375020
-      - X: 710000085
-        Y: 59375057
-      - X: 709375033
-        Y: 60000085
-      - X: 709374996
+        Y: 49999900
+      - X: 740000041
+        Y: 49999900
+      - X: 740000100
+        Y: 49999959
+      - X: 740000100
+        Y: 60000041
+      - X: 740000041
         Y: 60000100
       - X: 639999959
         Y: 60000100
@@ -6143,8 +6176,9 @@ CompositeCollider2D:
     m_Paths:
     - - {x: 69.99999, y: -4.999981}
       - {x: 71.000015, y: -4.9999747}
-      - {x: 71, y: 5.9375134}
-      - {x: 70.93749, y: 6.00001}
+      - {x: 71.00004, y: 4.99999}
+      - {x: 74.000015, y: 5.0000253}
+      - {x: 73.99998, y: 6.00001}
       - {x: 50, y: 5.999971}
       - {x: 49.999973, y: 0}
       - {x: 41.56256, y: 0.000061700004}
@@ -6387,7 +6421,7 @@ GameObject:
   - component: {fileID: 951436415}
   m_Layer: 0
   m_Name: Master Timeline
-  m_TagString: Untagged
+  m_TagString: Story
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8954,7 +8988,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2026294823991534153}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 37.319996, y: 6.96, z: -10}
+  m_LocalPosition: {x: -6.51, y: 1.0799999, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9186,7 +9220,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2026294824326060386}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 37.31941, y: 6.434453, z: -10}
+  m_LocalPosition: {x: -1.4274883, y: 1.0931292, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9213,7 +9247,7 @@ MonoBehaviour:
   m_YDamping: 0.1
   m_ZDamping: 0.1
   m_TargetMovementOnly: 1
-  m_ScreenX: 0.72
+  m_ScreenX: 0.54
   m_ScreenY: 0.62
   m_CameraDistance: 10
   m_DeadZoneWidth: 0.29
@@ -9222,7 +9256,7 @@ MonoBehaviour:
   m_UnlimitedSoftZone: 0
   m_SoftZoneWidth: 0.39
   m_SoftZoneHeight: 0.46
-  m_BiasX: 0.0000017881395
+  m_BiasX: 0.000002384186
   m_BiasY: -0.0999997
   m_CenterOnActivate: 1
   m_GroupFramingMode: 2
@@ -9427,6 +9461,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 204f7d09185cc3849b54efeaa7cdf8b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  storySO: {fileID: 11400000, guid: 10bda1a7e5fea86419632e668a4a744c, type: 2}
 --- !u!50 &6727316044386179104
 Rigidbody2D:
   serializedVersion: 4

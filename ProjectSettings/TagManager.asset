@@ -10,6 +10,7 @@ TagManager:
   - Tutorial
   - Session
   - Notification
+  - Story
   layers:
   - Default
   - TransparentFX

@@ -241,6 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 204f7d09185cc3849b54efeaa7cdf8b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  storySO: {fileID: 11400000, guid: 066c8824919c9e7449aa00e69cbc20cd, type: 2}
 --- !u!1 &242054539
 GameObject:
   m_ObjectHideFlags: 0
@@ -3137,6 +3138,7 @@ GameObject:
   m_Component:
   - component: {fileID: 951436413}
   - component: {fileID: 951436414}
+  - component: {fileID: 951436415}
   m_Layer: 0
   m_Name: Master Timeline
   m_TagString: Untagged
@@ -3184,6 +3186,20 @@ PlayableDirector:
     value: {fileID: 156866094}
   m_ExposedReferences:
     m_References: []
+--- !u!114 &951436415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 951436412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 991889d2565082e409debe1d1b2253ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 0}
+  timeAppearCharacter: 0
 --- !u!1 &1030113020
 GameObject:
   m_ObjectHideFlags: 0
@@ -3795,6 +3811,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 204f7d09185cc3849b54efeaa7cdf8b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  storySO: {fileID: 0}
 --- !u!95 &1435330497
 Animator:
   serializedVersion: 4
@@ -4662,7 +4679,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2026294823991534153}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.533142, y: 1.0799999, z: -10}
+  m_LocalPosition: {x: -5.42, y: 1.0799999, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4896,7 +4913,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2026294824326060386}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.533142, y: 1.0799999, z: -10}
+  m_LocalPosition: {x: -1.4289379, y: 1.092576, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5137,6 +5154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 204f7d09185cc3849b54efeaa7cdf8b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  storySO: {fileID: 11400000, guid: 066c8824919c9e7449aa00e69cbc20cd, type: 2}
 --- !u!50 &6727316044386179104
 Rigidbody2D:
   serializedVersion: 4

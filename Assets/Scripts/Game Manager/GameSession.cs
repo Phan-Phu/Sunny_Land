@@ -8,10 +8,12 @@ using UnityEngine.Events;
 public class GameSession : MonoBehaviour
 {
     [SerializeField] GameObject levelPause;
+    [SerializeField] float timeToWaitLoadScene = 2f;
+    [SerializeField] private GameObject skipButton;
+    [SerializeField] private GameObject UIGameplay;
 
     public UnityEvent<int> updateScore;
     public UnityEvent<int> updateLives;
-
     public List<string> ListGemItem = new List<string>();
     public List<string> ListCherryItem = new List<string>();
     public List<string> ListEnemy = new List<string>();
@@ -19,6 +21,7 @@ public class GameSession : MonoBehaviour
     private int score;
     private int playerLives = 3;
     private bool isActiveLevelPause = false;
+
     public bool IsSavePos { get; set; }
     public int StartScene { get; set; }
 
@@ -26,7 +29,10 @@ public class GameSession : MonoBehaviour
     {
         StartScene = SceneManager.GetActiveScene().buildIndex;
         levelPause.SetActive(false);
+        skipButton.SetActive(false);
+        UIGameplay.SetActive(true);
     }
+
     public void AddToScore(int score)
     {
         this.score += score;
@@ -40,8 +46,17 @@ public class GameSession : MonoBehaviour
 
     public void LoadNextLevel()
     {
-        int currentScene = SceneManager.GetActiveScene().buildIndex;
-        StartCoroutine(SaveLoadScene(currentScene));
+        Scene scene = SceneManager.GetActiveScene();
+        int currentScene = scene.buildIndex;
+        StartCoroutine(SaveLoadScene(currentScene, timeToWaitLoadScene));
+    }
+
+    private IEnumerator SaveLoadScene(int currentScene, float timeToWait)
+    {
+        SaveDataNextLevel(currentScene);
+
+        yield return new WaitForSeconds(timeToWait);
+        LoadLevel(currentScene);
 
         if (StartScene == currentScene)
         {
@@ -51,11 +66,22 @@ public class GameSession : MonoBehaviour
         }
     }
 
-    private IEnumerator SaveLoadScene(int currentScene)
+    public void ShowSkipStory(string nameScene)
     {
-        SaveDataNextLevel(currentScene);
-        yield return new WaitForSeconds(2f);
-        LoadLevel(currentScene);
+        string nameStory = nameScene.Substring(0, 5);
+        bool checkStory = nameStory == "Story" ? true : false;
+        skipButton.SetActive(checkStory);
+        UIGameplay.SetActive(!checkStory);
+    }
+
+    public void SkipStory()
+    {
+        int currentScene = SceneManager.GetActiveScene().buildIndex;
+        StartCoroutine(SaveLoadScene(currentScene, 0));
+
+        //set UI to default
+        skipButton.SetActive(false);
+        UIGameplay.SetActive(true);
     }
 
     public void LoadLevel(int currentScene)
@@ -105,6 +131,7 @@ public class GameSession : MonoBehaviour
             ResetGameSession();
         }
     }
+
     private void TakeLive()
     {
         playerLives--;
@@ -116,8 +143,8 @@ public class GameSession : MonoBehaviour
 
     private IEnumerator DelayLoadScene(int index)
     {
-        yield return new WaitForSeconds(2f);
-        if(index == 1)
+        yield return new WaitForSeconds(timeToWaitLoadScene);
+        if (index == 1)
         {
             SceneManager.LoadScene(index);
         }

@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ShowStory : MonoBehaviour
 {
+    [SerializeField] SO_Story storySO;
     private NotifySceneManager notifySceneManager;
 
     private void Start()
@@ -14,9 +15,15 @@ public class ShowStory : MonoBehaviour
         notifySceneManager.ShowTitle(nameScene);
     }
 
-    public void ShowingStory(string text)
+    public void ShowingStory(string title)
     {
         if(notifySceneManager == null) { return; }
-        notifySceneManager.ShowStory(text);
+        foreach (Story story in storySO.storyList)
+        {
+            if(story.titleText == title)
+            {
+                notifySceneManager.ShowStory(story.textStory);
+            }
+        }
     }
 }

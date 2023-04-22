@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Cinemachine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Playables;
+using System;
 
 public class StorySystem : MonoBehaviour
 {
@@ -14,13 +15,21 @@ public class StorySystem : MonoBehaviour
     {
         playableDirector = GetComponent<PlayableDirector>();
         if (character) { character.SetActive(false); }
-        
-    }
 
+        if(GameObject.FindGameObjectWithTag("Session").TryGetComponent<GameSession>(out GameSession gameSession))
+        {
+            string nameScene = SceneManager.GetActiveScene().name;
+            string name = nameScene.Substring(0, 5);
+            if (name == "Story")
+            {
+                gameSession.ShowSkipStory(nameScene);
+            }
+        }
+    }
     private void Update()
     {
-        if(character == null) { return; }
-        if(playableDirector.time >= timeAppearCharacter)
+        if (character == null) { return; }
+        if (playableDirector.time >= timeAppearCharacter)
         {
             character.SetActive(true);
         }

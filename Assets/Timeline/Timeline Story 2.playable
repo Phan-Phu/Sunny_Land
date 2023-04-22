@@ -263,14 +263,14 @@ AnimationClip:
   m_Events:
   - time: 12
     functionName: ShowingStory
-    data: 'Sunny: I come back'
+    data: Part 4
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 16.016666
     functionName: ShowingStory
-    data: 'Sunny: I must violate the rule of village one again'
+    data: Part 6
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
@@ -1014,28 +1014,28 @@ AnimationClip:
   m_Events:
   - time: 4.4666667
     functionName: ShowingStory
-    data: 'Buuny: Sunny!!!!!!!'
+    data: Part 1
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 8
     functionName: ShowingStory
-    data: 'Buuny: You are comeback'
+    data: Part 2
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 10.016666
     functionName: ShowingStory
-    data: 'Bunny: I throught couldn''t see you again'
+    data: Part 3
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 14.016666
     functionName: ShowingStory
-    data: 'Buuny: oa oa oa .... '
+    data: Part 5
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0

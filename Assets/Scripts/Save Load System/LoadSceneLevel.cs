@@ -7,6 +7,7 @@ public class LoadSceneLevel : MonoBehaviour
     public event EventHandler<string> onLoadLevel;
     public event EventHandler<bool> onLockLevel;
     private Button button;
+
     private void Awake()
     {
         button = GetComponentInChildren<Button>();

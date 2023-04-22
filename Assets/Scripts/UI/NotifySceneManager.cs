@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class NotifySceneManager : MonoBehaviour
 {
@@ -21,6 +22,12 @@ public class NotifySceneManager : MonoBehaviour
     private void Awake()
     {
         frameTutorial.enabled = false;
+    }
+
+    private void Start()
+    {
+        //listener event form scene
+        GameSession gameSession = GetComponentInParent<GameSession>();
     }
 
     public void ShowTutorial(string text)

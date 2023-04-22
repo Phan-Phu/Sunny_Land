@@ -320,21 +320,21 @@ AnimationClip:
   m_Events:
   - time: 10
     functionName: ShowingStory
-    data: 'Bunny: Comeback!!!'
+    data: Part 1
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 11.983334
     functionName: ShowingStory
-    data: 'Bunny: If you keep going, you won''t way home'
+    data: Part 2
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 16
     functionName: ShowingStory
-    data: 'Bunny: Comeback!!!'
+    data: Part 4
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
@@ -2243,7 +2243,7 @@ AnimationClip:
   m_Events:
   - time: 14
     functionName: ShowingStory
-    data: 'Sunny: No!!!'
+    data: Part 3
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
