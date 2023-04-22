@@ -33,6 +33,11 @@ public class Enemy : MonoBehaviour
         return false;
     }
 
+    protected Vector2 GetPositionPlayer()
+    {
+        return player.transform.position;
+    }
+
     private void AudioDeath()
     {
         float volume = PlayerPrefsController.GetSFXVolume();

@@ -11515,7 +11515,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: Press W (Arrow Up) to climb
-  TimeToResetText: 2
 --- !u!95 &1557168324
 Animator:
   serializedVersion: 4
@@ -12291,7 +12290,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: Go down to finish
-  TimeToResetText: 2
 --- !u!1 &1747377188
 GameObject:
   m_ObjectHideFlags: 0
@@ -13239,11 +13237,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 626376048822100065, guid: 4404dacc10b5d05459a5e2600738f2fb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.3778353
+      value: 7.317836
       objectReference: {fileID: 0}
     - target: {fileID: 626376048822100065, guid: 4404dacc10b5d05459a5e2600738f2fb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.998789
+      value: 5.3087883
       objectReference: {fileID: 0}
     - target: {fileID: 626376049022344120, guid: 4404dacc10b5d05459a5e2600738f2fb, type: 3}
       propertyPath: m_Follow
@@ -13251,11 +13249,11 @@ PrefabInstance:
       objectReference: {fileID: 540367010}
     - target: {fileID: 626376049022344121, guid: 4404dacc10b5d05459a5e2600738f2fb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.3778353
+      value: 7.317836
       objectReference: {fileID: 0}
     - target: {fileID: 626376049022344121, guid: 4404dacc10b5d05459a5e2600738f2fb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.998789
+      value: 5.3087883
       objectReference: {fileID: 0}
     - target: {fileID: 626376049022344123, guid: 4404dacc10b5d05459a5e2600738f2fb, type: 3}
       propertyPath: m_BoundingShape2D
@@ -13276,11 +13274,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8948574889215838178, guid: 2ec5fab59b98fa742bb0a5ce19339573, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.41
+      value: 5.35
       objectReference: {fileID: 0}
     - target: {fileID: 8948574889215838178, guid: 2ec5fab59b98fa742bb0a5ce19339573, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.02
+      value: 6.33
       objectReference: {fileID: 0}
     - target: {fileID: 8948574889215838178, guid: 2ec5fab59b98fa742bb0a5ce19339573, type: 3}
       propertyPath: m_LocalPosition.z
@@ -13316,7 +13314,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8948574889215838189, guid: 2ec5fab59b98fa742bb0a5ce19339573, type: 3}
       propertyPath: m_Name
-      value: 'New Player '
+      value: 'Player '
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ec5fab59b98fa742bb0a5ce19339573, type: 3}
@@ -13446,7 +13444,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: Press Space to Jump
-  TimeToResetText: 3
 --- !u!95 &8488954175439613789
 Animator:
   serializedVersion: 4
