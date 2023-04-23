@@ -18,10 +18,6 @@ public class LiveScore : MonoBehaviour
     {
         gameSession.updateLives.AddListener(UpdateLive);
     }
-    private void Start()
-    {
-        UpdateLive(3);
-    }
     private void UpdateLive(int live)
     {
         liveScore.text = $"{live}";

@@ -11,6 +11,7 @@ public class GameSession : MonoBehaviour
     [SerializeField] float timeToWaitLoadScene = 2f;
     [SerializeField] private GameObject skipButton;
     [SerializeField] private GameObject UIGameplay;
+    [SerializeField] private int limitMaxScore = 1500;
 
     public UnityEvent<int> updateScore;
     public UnityEvent<int> updateLives;
@@ -19,7 +20,7 @@ public class GameSession : MonoBehaviour
     public List<string> ListEnemy = new List<string>();
 
     private int score;
-    private int playerLives = 3;
+    private int playerLives = 4;
     private bool isActiveLevelPause = false;
 
     public bool IsSavePos { get; set; }
@@ -31,11 +32,18 @@ public class GameSession : MonoBehaviour
         levelPause.SetActive(false);
         skipButton.SetActive(false);
         UIGameplay.SetActive(true);
+        // update start live
+        updateLives?.Invoke(playerLives);
     }
 
     public void AddToScore(int score)
     {
         this.score += score;
+        if(this.score == limitMaxScore)
+        {
+            AddLives(1);
+            this.score = 0;
+        }
         updateScore?.Invoke(this.score);
     }
     public void AddLives(int live)
