@@ -7,6 +7,8 @@ public class ShowStoryUI : MonoBehaviour
 {
     [SerializeField] private SO_Story storyListSO;
     [SerializeField] private string textTitle = "Introduction";
+    [Tooltip("Audio can be null")]
+    [SerializeField] private AudioClip typingAudio;
     private TextMeshProUGUI storyText;
 
 
@@ -22,8 +24,28 @@ public class ShowStoryUI : MonoBehaviour
         {
             if (story.titleText == textTitle)
             {
-                storyText.text = story.textStory;
+                //storyText.text = story.textStory;
+                StartCoroutine(AnimationParagraph(story.textStory));
             }
         }
+    }
+
+    private IEnumerator AnimationParagraph(string paragraph)
+    {
+        char[] characters = paragraph.ToCharArray();
+        for (int i = 0; i < characters.Length; i++)
+        {
+            storyText.text += characters[i].ToString();
+            float timeToWait = 0.05f;
+            PlayAudio();
+            yield return new WaitForSeconds(timeToWait);
+        }
+    }
+
+    private void PlayAudio()
+    {
+        if(typingAudio == null) { return; }
+        float volume = PlayerPrefsController.GetSFXVolume();
+        AudioSource.PlayClipAtPoint(typingAudio, Camera.main.transform.position, volume);
     }
 }

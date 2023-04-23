@@ -47,7 +47,7 @@ public class LevelLoader : MonoBehaviour
     private void LoadLevel(string nameScene)
     {
         if(nameScene == "") { return; }
-        if(nameScene == "Level 1")
+        if (nameScene == "Level 1")
         {
             LoadStoryScene();
         }

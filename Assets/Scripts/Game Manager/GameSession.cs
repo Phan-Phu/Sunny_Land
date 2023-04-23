@@ -9,9 +9,11 @@ public class GameSession : MonoBehaviour
 {
     [SerializeField] GameObject levelPause;
     [SerializeField] float timeToWaitLoadScene = 2f;
+    [SerializeField] private FadeLoadScene fadeLoadScene;
     [SerializeField] private GameObject skipButton;
     [SerializeField] private GameObject UIGameplay;
     [SerializeField] private int limitMaxScore = 1500;
+
 
     public UnityEvent<int> updateScore;
     public UnityEvent<int> updateLives;
@@ -34,6 +36,7 @@ public class GameSession : MonoBehaviour
         UIGameplay.SetActive(true);
         // update start live
         updateLives?.Invoke(playerLives);
+        fadeLoadScene.FadeOutScene();
     }
 
     public void AddToScore(int score)
@@ -54,8 +57,9 @@ public class GameSession : MonoBehaviour
 
     public void LoadNextLevel()
     {
-        Scene scene = SceneManager.GetActiveScene();
-        int currentScene = scene.buildIndex;
+        RestartBoard();
+        int currentScene = SceneManager.GetActiveScene().buildIndex;
+        fadeLoadScene.FadeInScene();
         StartCoroutine(SaveLoadScene(currentScene, timeToWaitLoadScene));
     }
 
@@ -72,6 +76,12 @@ public class GameSession : MonoBehaviour
             ClearDataEnemy();
             StartScene = currentScene + 1;
         }
+    }
+
+    private void RestartBoard()
+    {
+        skipButton.SetActive(false);
+        UIGameplay.SetActive(true);
     }
 
     public void ShowSkipStory(string nameScene)
@@ -118,6 +128,7 @@ public class GameSession : MonoBehaviour
 
     private IEnumerator UnLoadScene(int currentScene)
     {
+        fadeLoadScene.FadeInScene();
         yield return SceneManager.UnloadSceneAsync(currentScene);
     }
 
@@ -126,6 +137,7 @@ public class GameSession : MonoBehaviour
         yield return SceneManager.LoadSceneAsync(currentScene + 1, LoadSceneMode.Additive);
         Scene scene = SceneManager.GetSceneByBuildIndex(currentScene + 1);
         SceneManager.SetActiveScene(scene);
+        fadeLoadScene.FadeOutScene();
     }
 
     public void ProcessPlayerDeath()
@@ -151,6 +163,7 @@ public class GameSession : MonoBehaviour
 
     private IEnumerator DelayLoadScene(int index)
     {
+        fadeLoadScene.FadeInScene();
         yield return new WaitForSeconds(timeToWaitLoadScene);
         if (index == 1)
         {
@@ -163,6 +176,7 @@ public class GameSession : MonoBehaviour
             Scene scene = SceneManager.GetSceneByBuildIndex(index);
             SceneManager.SetActiveScene(scene);
         }
+        fadeLoadScene.FadeOutScene();
     }
 
     private void ResetGameSession()
@@ -187,6 +201,7 @@ public class GameSession : MonoBehaviour
 
     public void LoadMainMenu()
     {
+        fadeLoadScene.FadeInScene();
         SceneManager.LoadScene(0);
         Time.timeScale = 1;
         Destroy(gameObject);
