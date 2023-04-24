@@ -23,7 +23,7 @@ public class StateClimb : State
 
         myAnimator.SetFloat("Fl_Climb", Mathf.Abs(climb));
 
-        if (OnLanding(myFeet, Vector2.down) || !myBody.IsTouchingLayers(LayerMask.GetMask("Climb")))
+        if (CheckRaycastCollision(myFeet, Vector2.down) || !myBody.IsTouchingLayers(LayerMask.GetMask("Climb")))
         {
             myAnimator.SetBool("Is_Climb", false);
         }

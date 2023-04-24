@@ -6,14 +6,17 @@ public class StateMove : State
 {
     public override void Move(float speedRun, float speedCrouch)
     {
-        bool isGround = OnLanding(myFeet, Vector2.down);
-        bool checkCrouch = OnLanding(myFeet, Vector2.up);
-        bool canCrouch = InputSystem.Instance.Crouch() > Mathf.Epsilon;
+        bool isGround = CheckCollisionLayer(myFeet, LayerMask.GetMask("Foreground"));
+        bool checkCrouchUp = CheckRaycastCollision(myFeet, Vector2.up);
+        bool checkCrouchDown = CheckRaycastCollision(myFeet, Vector2.down);
+
+        bool checkLadder = CheckCollisionLayer(myFeet, LayerMask.GetMask("Climb"));
+        bool canCrouch = InputSystem.Instance.Crouch() > Mathf.Epsilon && !checkLadder;
         float speedMove = 0f;
 
         if(isGround)
         {
-            if(checkCrouch)
+            if(checkCrouchUp && checkCrouchDown)
             {
                 myBody.enabled = false;
                 speedMove = speedCrouch;

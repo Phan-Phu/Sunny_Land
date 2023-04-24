@@ -7,8 +7,8 @@ public class StateJump : State
     public override void Jump(float jumpForce)
     {
         bool isClimb = myFeet.IsTouchingLayers(LayerMask.GetMask("Climb"));
-        bool isGround = OnLanding(myFeet, Vector2.down);
-        bool canJump = InputSystem.Instance.Crouch() == 0;
+        bool isGround = CheckCollisionLayer(myFeet, LayerMask.GetMask("Foreground"));
+        bool canJump = InputSystem.Instance.Crouch() == 0 && CheckRaycastCollision(myFeet, Vector2.down);
 
         myAnimator.SetBool("Is_Ground", isGround);
 

@@ -50,7 +50,7 @@ public abstract class State : MonoBehaviour
         return checkForeground;
     }
 
-    protected bool OnLanding(CircleCollider2D circleCollider2D, Vector2 direction)
+    protected bool CheckRaycastCollision(CircleCollider2D circleCollider2D, Vector2 direction)
     {
         float maxDistance = 1f;
 
@@ -59,6 +59,18 @@ public abstract class State : MonoBehaviour
         RaycastHit2D raycastHit2D = Physics2D.Raycast(startPosition, direction, maxDistance, LayerMask.GetMask("Foreground"));
 
         if (raycastHit2D.collider != null)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    protected bool CheckCollisionLayer(CircleCollider2D circleCollider2D, LayerMask layerMask)
+    {
+        Vector2 point = circleCollider2D.transform.position;
+        float radius = 1;
+        bool onLanding = Physics2D.OverlapCircle(point, radius, layerMask);
+        if(onLanding)
         {
             return true;
         }
