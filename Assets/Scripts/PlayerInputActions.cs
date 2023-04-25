@@ -154,6 +154,17 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
+                    ""name"": """",
+                    ""id"": ""dd81f2c7-a976-48a3-83a8-d40eb68d091b"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Crouch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
                     ""name"": ""SW"",
                     ""id"": ""24e0d7d5-5e8a-473e-8009-690ab4e7e4b7"",
                     ""path"": ""1DAxis"",

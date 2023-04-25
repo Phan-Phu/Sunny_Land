@@ -13,6 +13,7 @@ public class GameSession : MonoBehaviour
     [SerializeField] private GameObject skipButton;
     [SerializeField] private GameObject UIGameplay;
     [SerializeField] private int limitMaxScore = 1500;
+    [SerializeField] private NotifySceneManager notifySceneManager;
 
 
     public UnityEvent<int> updateScore;
@@ -100,6 +101,8 @@ public class GameSession : MonoBehaviour
         //set UI to default
         skipButton.SetActive(false);
         UIGameplay.SetActive(true);
+
+        notifySceneManager.HideStory();
     }
 
     public void LoadLevel(int currentScene)

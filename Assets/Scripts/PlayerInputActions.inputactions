@@ -11,7 +11,8 @@
                     "id": "8db96394-1bf1-4b4e-a9dc-b54fde4fb1b5",
                     "expectedControlType": "Axis",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Climb",
@@ -19,7 +20,8 @@
                     "id": "5b57df80-3abf-417b-b98c-797f4117f6a0",
                     "expectedControlType": "Axis",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Jump",
@@ -27,7 +29,8 @@
                     "id": "29dac0cf-727d-416b-8500-9754ab46d6fc",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Crouch",
@@ -35,7 +38,8 @@
                     "id": "9792dc27-4bc7-4f0b-9dac-42cfddcb45ab",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -120,6 +124,17 @@
                     "name": "",
                     "id": "b797c453-5a67-4c57-83cc-79454c71d96f",
                     "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Crouch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dd81f2c7-a976-48a3-83a8-d40eb68d091b",
+                    "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
