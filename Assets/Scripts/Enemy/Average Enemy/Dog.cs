@@ -5,8 +5,8 @@ using UnityEngine;
 public class Dog : AverageEnemy
 {
     [SerializeField] private float speed = 1f;
-    [Tooltip("Dimension Y must be != 0")]
-    [SerializeField] Vector2 distanceToAttack = new Vector2(5f, 0f);
+    [SerializeField] float distanceToAttackX = 5f;
+    private Vector2 distanceToAttack;
 
     private Vector2 direction;
     private Vector2 originPosition;
@@ -15,10 +15,14 @@ public class Dog : AverageEnemy
     {
         direction = new Vector2(transform.position.x - GetPositionPlayer().x, transform.position.y - GetPositionPlayer().y);
         originPosition = transform.position;
+        float distanceToAttackY = 1f; // make sure dog detect player
+        distanceToAttack = new Vector2(distanceToAttackX, distanceToAttackY);
     }
 
-    private void Update()
+    protected override void Update()
     {
+        base.Update();
+
         if (IsAttack(originPosition, GetPositionPlayer(), distanceToAttack, out Vector2 currentDistance))
         {
             direction = currentDistance;

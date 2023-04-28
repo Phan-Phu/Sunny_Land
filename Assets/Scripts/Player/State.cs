@@ -50,13 +50,13 @@ public abstract class State : MonoBehaviour
         return checkForeground;
     }
 
-    protected bool CheckRaycastCollision(CircleCollider2D circleCollider2D, Vector2 direction)
+    protected bool CheckRaycastCollision(CircleCollider2D circleCollider2D, Vector2 direction, LayerMask layerMask)
     {
         float maxDistance = 1f;
 
         Vector2 startPosition = circleCollider2D.transform.position;
 
-        RaycastHit2D raycastHit2D = Physics2D.Raycast(startPosition, direction, maxDistance, LayerMask.GetMask("Foreground"));
+        RaycastHit2D raycastHit2D = Physics2D.Raycast(startPosition, direction, maxDistance, layerMask);
 
         if (raycastHit2D.collider != null)
         {

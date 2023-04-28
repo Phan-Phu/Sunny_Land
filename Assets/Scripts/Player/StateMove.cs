@@ -7,8 +7,8 @@ public class StateMove : State
     public override void Move(float speedRun, float speedCrouch)
     {
         bool isGround = CheckCollisionLayer(myFeet, LayerMask.GetMask("Foreground"));
-        bool checkCrouchUp = CheckRaycastCollision(myFeet, Vector2.up);
-        bool checkCrouchDown = CheckRaycastCollision(myFeet, Vector2.down);
+        bool checkCrouchUp = CheckRaycastCollision(myFeet, Vector2.up, LayerMask.GetMask("Foreground"));
+        bool checkCrouchDown = CheckRaycastCollision(myFeet, Vector2.down, LayerMask.GetMask("Foreground"));
 
         bool checkLadder = CheckCollisionLayer(myFeet, LayerMask.GetMask("Climb"));
         bool canCrouch = InputSystem.Instance.Crouch() > Mathf.Epsilon && !checkLadder;

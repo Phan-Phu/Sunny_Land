@@ -59,7 +59,7 @@ public class LevelLoader : MonoBehaviour
 
     private void LoadStoryScene()
     {
-        string nameScene = "Story Screen";
+        string nameScene = "Story Intro";
         SceneManager.LoadScene(nameScene);
     }
 

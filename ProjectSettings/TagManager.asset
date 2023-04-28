@@ -60,11 +60,11 @@ TagManager:
   - name: Hazards
     uniqueID: 4142245537
     locked: 0
-  - name: Player
-    uniqueID: 1145448711
-    locked: 0
   - name: Interacables
     uniqueID: 2728799503
+    locked: 0
+  - name: Player
+    uniqueID: 1145448711
     locked: 0
   - name: Foreground
     uniqueID: 1448789141

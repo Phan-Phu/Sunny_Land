@@ -9,26 +9,38 @@ public class Bat : AverageEnemy
 
     private Vector2 direction;
     private Vector2 originPosition;
+    private bool isFreeze;
+    [SerializeField] private float timeFreeze = 0;
 
     private void Start()
     {
         direction = new Vector2(transform.position.x - GetPositionPlayer().x, transform.position.y - GetPositionPlayer().y);
         originPosition = transform.position;
+        isFreeze = false;
     }
 
-    private void Update()
+    protected override void Update()
     {
-        if (IsAttack(originPosition, GetPositionPlayer(), distanceToAttack, out Vector2 currentDistance))
+        base.Update();
+
+        if (IsAttack(originPosition, GetPositionPlayer(), distanceToAttack, out Vector2 currentDistance) && !isFreeze)
         {
             direction = currentDistance;
             Attack();
+            timeFreeze = 0;
         }
         else
         {
             ReturnToPositionStart(-direction, originPosition, speed);
             if (transform.position.x - originPosition.x == 0 && transform.position.y - originPosition.y == 0)
             {
+                isFreeze = true;
                 Idle();
+                timeFreeze += Time.deltaTime;
+                if(timeFreeze >= 3f)
+                {
+                    isFreeze = false;
+                }
             }
         }
     }

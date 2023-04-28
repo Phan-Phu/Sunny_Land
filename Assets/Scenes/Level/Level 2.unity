@@ -1118,7 +1118,7 @@ PrefabInstance:
       objectReference: {fileID: 1719097418}
     - target: {fileID: 6448302877795971968, guid: f42a245e7cde91043bfaeacbdd1b30d8, type: 3}
       propertyPath: killKickPlayer.y
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6448302877795971972, guid: f42a245e7cde91043bfaeacbdd1b30d8, type: 3}
       propertyPath: m_Name
@@ -1514,6 +1514,10 @@ PrefabInstance:
     - target: {fileID: 3132418840868809222, guid: 617d1902f35686b439f91762222b055a, type: 3}
       propertyPath: speedEnemy
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3132418840868809222, guid: 617d1902f35686b439f91762222b055a, type: 3}
+      propertyPath: killKickPlayer.y
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 617d1902f35686b439f91762222b055a, type: 3}
@@ -10599,7 +10603,7 @@ PrefabInstance:
       objectReference: {fileID: 1719097418}
     - target: {fileID: 6448302877795971968, guid: f42a245e7cde91043bfaeacbdd1b30d8, type: 3}
       propertyPath: killKickPlayer.y
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6448302877795971972, guid: f42a245e7cde91043bfaeacbdd1b30d8, type: 3}
       propertyPath: m_Name
@@ -12686,11 +12690,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8948574889215838178, guid: 2ec5fab59b98fa742bb0a5ce19339573, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.8503237
+      value: 2.49
       objectReference: {fileID: 0}
     - target: {fileID: 8948574889215838178, guid: 2ec5fab59b98fa742bb0a5ce19339573, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.27
+      value: 6.28
       objectReference: {fileID: 0}
     - target: {fileID: 8948574889215838178, guid: 2ec5fab59b98fa742bb0a5ce19339573, type: 3}
       propertyPath: m_LocalPosition.z
@@ -13813,7 +13817,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 626376048822100065, guid: 4404dacc10b5d05459a5e2600738f2fb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.799997
+      value: 5.258788
       objectReference: {fileID: 0}
     - target: {fileID: 626376049022344120, guid: 4404dacc10b5d05459a5e2600738f2fb, type: 3}
       propertyPath: m_Follow
@@ -13821,11 +13825,11 @@ PrefabInstance:
       objectReference: {fileID: 1719097417}
     - target: {fileID: 626376049022344121, guid: 4404dacc10b5d05459a5e2600738f2fb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.0903234
+      value: 4.4578357
       objectReference: {fileID: 0}
     - target: {fileID: 626376049022344121, guid: 4404dacc10b5d05459a5e2600738f2fb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.8
+      value: 5.258788
       objectReference: {fileID: 0}
     - target: {fileID: 626376049022344123, guid: 4404dacc10b5d05459a5e2600738f2fb, type: 3}
       propertyPath: m_BoundingShape2D
@@ -13833,7 +13837,7 @@ PrefabInstance:
       objectReference: {fileID: 783882846}
     - target: {fileID: 626376049948624167, guid: 4404dacc10b5d05459a5e2600738f2fb, type: 3}
       propertyPath: m_BiasX
-      value: 0.0000005960465
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 626376049948624167, guid: 4404dacc10b5d05459a5e2600738f2fb, type: 3}
       propertyPath: m_BiasY
@@ -13841,11 +13845,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 626376049948624167, guid: 4404dacc10b5d05459a5e2600738f2fb, type: 3}
       propertyPath: m_ScreenX
-      value: 0.36
+      value: 0.3770103
       objectReference: {fileID: 0}
     - target: {fileID: 626376049948624167, guid: 4404dacc10b5d05459a5e2600738f2fb, type: 3}
       propertyPath: m_ScreenY
-      value: 0.67
+      value: 0.386532
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4404dacc10b5d05459a5e2600738f2fb, type: 3}
@@ -13903,9 +13907,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1566167793
-  m_SortingLayer: 6
+  m_SortingLayer: 5
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: fc87ac59ce7dd3043a2995b25079f431, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 42820af2772f24bda991ed7de294c2fd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -13968,7 +13972,7 @@ PrefabInstance:
       objectReference: {fileID: 1719097418}
     - target: {fileID: 6448302877795971968, guid: f42a245e7cde91043bfaeacbdd1b30d8, type: 3}
       propertyPath: killKickPlayer.y
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6448302877795971972, guid: f42a245e7cde91043bfaeacbdd1b30d8, type: 3}
       propertyPath: m_Name

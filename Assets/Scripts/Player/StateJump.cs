@@ -8,7 +8,9 @@ public class StateJump : State
     {
         bool isClimb = myFeet.IsTouchingLayers(LayerMask.GetMask("Climb"));
         bool isGround = CheckCollisionLayer(myFeet, LayerMask.GetMask("Foreground"));
-        bool canJump = InputSystem.Instance.Crouch() == 0 && CheckRaycastCollision(myFeet, Vector2.down * 2);
+        bool checkCrouchUp = CheckRaycastCollision(myFeet, Vector2.up, LayerMask.GetMask("Foreground"));
+        bool checkCrouchDown = CheckRaycastCollision(myFeet, Vector2.down, LayerMask.GetMask("Foreground"));
+        bool canJump = InputSystem.Instance.Crouch() == 0 && CheckRaycastCollision(myFeet, Vector2.down * 2, LayerMask.GetMask("Foreground"));
 
         myAnimator.SetBool("Is_Ground", isGround);
 
@@ -18,7 +20,7 @@ public class StateJump : State
             myAnimator.SetBool("Is_Jump", false);
         }
 
-        if (!isGround || !canJump || isClimb)
+        if (!isGround || !canJump || isClimb || (checkCrouchUp && checkCrouchDown))
         {
             return;
         }

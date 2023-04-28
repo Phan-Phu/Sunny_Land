@@ -107,9 +107,18 @@ public class GameSession : MonoBehaviour
 
     public void LoadLevel(int currentScene)
     {
-        Time.timeScale = 1;
-        StartCoroutine(UnLoadScene(currentScene));
-        StartCoroutine(LoadSceneAsyncAndActive(currentScene));
+        string nameScene = SceneManager.GetSceneByBuildIndex(currentScene).name;
+        string finalLevel = "Story 2";
+        if(nameScene == finalLevel)
+        {
+            SceneManager.LoadScene(currentScene + 1);
+        }
+        else
+        {
+            Time.timeScale = 1;
+            StartCoroutine(UnLoadScene(currentScene));
+            StartCoroutine(LoadSceneAsyncAndActive(currentScene));
+        }
     }
 
     private void SaveDataNextLevel(int currentScene)
@@ -184,7 +193,7 @@ public class GameSession : MonoBehaviour
 
     private void ResetGameSession()
     {
-        StartCoroutine(DelayLoadScene(1));
+        StartCoroutine(DelayLoadScene(0));
     }
 
     private void Update()

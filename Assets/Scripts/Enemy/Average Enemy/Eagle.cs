@@ -10,6 +10,7 @@ public class Eagle : AverageEnemy
 
     private Vector2 originPosition;
     private Vector2 direction;
+    private bool isPlaying = false;
 
     private void Start()
     {
@@ -17,24 +18,26 @@ public class Eagle : AverageEnemy
         originPosition = transform.position;
     }
 
-    void Update()
+    protected override void Update()
     {
+        base.Update();
 
         if (IsAttack(originPosition, GetPositionPlayer(), distanceToAttack, out Vector2 currentDistance))
         {
+            AudioAttack();
             direction = currentDistance;
             Attack();
         }
         else
         {
             ReturnToPositionStart(direction, originPosition, speed);
+            isPlaying = false;
         }
     }
 
     protected override void Attack()
     {
         FlipSprite(direction.x);
-        AudioAttack();
         transform.position = Vector3.MoveTowards(transform.position, GetPositionPlayer(), speed * Time.deltaTime);
     }
 
@@ -50,8 +53,9 @@ public class Eagle : AverageEnemy
 
     private void AudioAttack()
     {
+        if (isPlaying) { return; }
         float volume = PlayerPrefsController.GetSFXVolume();
         AudioSource.PlayClipAtPoint(audioAttack, Camera.main.transform.position, volume);
-        isAttack = true;
+        isPlaying = true;
     }
 }

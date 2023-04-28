@@ -75,6 +75,6 @@ public class Frog : BasicEnemy
     private void AudioIdle()
     {
         float volume = PlayerPrefsController.GetSFXVolume();
-        AudioSource.PlayClipAtPoint(audioIdle, Camera.main.transform.position, volume);
+        AudioSource.PlayClipAtPoint(audioIdle, transform.position, volume);
     }
 }

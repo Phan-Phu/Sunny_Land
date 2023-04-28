@@ -6,23 +6,12 @@ public class AverageEnemy : Enemy
 {
     protected Animator animator;
 
-    private bool isAlive;
+    private bool isAlive = true;
     protected bool isAttack;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
-    }
-
-    private void Start()
-    {
-        Idle();
-        isAlive = true;
-    }
-
-    private void Update()
-    {
-        if (!isAlive) { return; }
     }
 
     protected virtual bool IsAttack(Vector2 originPosition, Vector2 positionPlayer, Vector2 distanceToAttack, out Vector2 currentDistance)
@@ -37,6 +26,14 @@ public class AverageEnemy : Enemy
 
         bool isAttack = isAttackX && isAttackY;
         return isAttack;
+    }
+
+    protected virtual void Update()
+    {
+        if(!isAlive)
+        {
+            return;
+        }
     }
 
     protected virtual void Idle()
@@ -67,13 +64,13 @@ public class AverageEnemy : Enemy
         transform.localScale = new Vector2(flip, 1);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    protected void OnCollisionEnter2D(Collision2D collision)
     {
         if (!isAlive) { return; }
-        isAlive = false;
+
         EnemyDeath(collision);
         animator.SetTrigger("IsDie");
-
+        isAlive = false;
         GameSession listEnemy = FindObjectOfType<GameSession>();
         listEnemy.ListEnemy.Add(gameObject.name.ToString());
     }
