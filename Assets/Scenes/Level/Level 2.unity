@@ -13811,46 +13811,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 626376048822100065, guid: 4404dacc10b5d05459a5e2600738f2fb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 7.3999996
-      objectReference: {fileID: 0}
-    - target: {fileID: 626376048822100065, guid: 4404dacc10b5d05459a5e2600738f2fb, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 5.258788
-      objectReference: {fileID: 0}
     - target: {fileID: 626376049022344120, guid: 4404dacc10b5d05459a5e2600738f2fb, type: 3}
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 1719097417}
-    - target: {fileID: 626376049022344121, guid: 4404dacc10b5d05459a5e2600738f2fb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 4.4578357
-      objectReference: {fileID: 0}
-    - target: {fileID: 626376049022344121, guid: 4404dacc10b5d05459a5e2600738f2fb, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 5.258788
-      objectReference: {fileID: 0}
     - target: {fileID: 626376049022344123, guid: 4404dacc10b5d05459a5e2600738f2fb, type: 3}
       propertyPath: m_BoundingShape2D
       value: 
       objectReference: {fileID: 783882846}
-    - target: {fileID: 626376049948624167, guid: 4404dacc10b5d05459a5e2600738f2fb, type: 3}
-      propertyPath: m_BiasX
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 626376049948624167, guid: 4404dacc10b5d05459a5e2600738f2fb, type: 3}
-      propertyPath: m_BiasY
-      value: -0.10000003
-      objectReference: {fileID: 0}
-    - target: {fileID: 626376049948624167, guid: 4404dacc10b5d05459a5e2600738f2fb, type: 3}
-      propertyPath: m_ScreenX
-      value: 0.3770103
-      objectReference: {fileID: 0}
-    - target: {fileID: 626376049948624167, guid: 4404dacc10b5d05459a5e2600738f2fb, type: 3}
-      propertyPath: m_ScreenY
-      value: 0.386532
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4404dacc10b5d05459a5e2600738f2fb, type: 3}
 --- !u!4 &1817226483332267314

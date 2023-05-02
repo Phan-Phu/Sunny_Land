@@ -43,7 +43,7 @@ public class GameSession : MonoBehaviour
     public void AddToScore(int score)
     {
         this.score += score;
-        if(this.score == limitMaxScore)
+        if (this.score == limitMaxScore)
         {
             AddLives(1);
             this.score = 0;
@@ -109,7 +109,7 @@ public class GameSession : MonoBehaviour
     {
         string nameScene = SceneManager.GetSceneByBuildIndex(currentScene).name;
         string finalLevel = "Story 2";
-        if(nameScene == finalLevel)
+        if (nameScene == finalLevel)
         {
             SceneManager.LoadScene(currentScene + 1);
         }
@@ -160,7 +160,7 @@ public class GameSession : MonoBehaviour
         }
         else
         {
-            ResetGameSession();
+            StartCoroutine(ResetGameSession());
         }
     }
 
@@ -191,9 +191,12 @@ public class GameSession : MonoBehaviour
         fadeLoadScene.FadeOutScene();
     }
 
-    private void ResetGameSession()
+    private IEnumerator ResetGameSession()
     {
-        StartCoroutine(DelayLoadScene(0));
+        fadeLoadScene.FadeInScene();
+        yield return new WaitForSeconds(timeToWaitLoadScene);
+        SceneManager.LoadScene(0);
+        fadeLoadScene.FadeOutScene();
     }
 
     private void Update()
